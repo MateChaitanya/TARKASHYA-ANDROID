@@ -1,0 +1,213 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#B71C1C"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back_arrow"
+                app:tint="@color/white" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Registration"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView android:layout_width="30dp" android:layout_height="30dp" android:background="@drawable/circle_white" android:gravity="center" android:text="1" android:textColor="#B71C1C" android:textStyle="bold" />
+            <View android:layout_width="50dp" android:layout_height="2dp" android:layout_marginHorizontal="8dp" android:background="#FFFFFF" />
+            <TextView android:layout_width="30dp" android:layout_height="30dp" android:background="@drawable/circle_outline" android:gravity="center" android:text="2" android:textColor="@color/white" />
+            <View android:layout_width="50dp" android:layout_height="2dp" android:layout_marginHorizontal="8dp" android:background="#FFFFFF" />
+            <TextView android:layout_width="30dp" android:layout_height="30dp" android:background="@drawable/circle_outline" android:gravity="center" android:text="3" android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginBottom="80dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Basic Information"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User Details"
+                    android:textColor="#B71C1C"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:hint="Full Name" app:startIconDrawable="@drawable/ic_person">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etFullName" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Mobile Number" app:startIconDrawable="@drawable/ic_phone">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etMobile" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Email Id" app:startIconDrawable="@drawable/ic_email">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Date of Birth" app:startIconDrawable="@android:drawable/ic_menu_my_calendar">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etUserDob" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:focusable="false" android:clickable="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Age" app:startIconDrawable="@drawable/ic_id_card">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etUserAge" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:enabled="false" android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Gender" android:textColor="#212121" android:textSize="12sp" />
+                <com.google.android.material.button.MaterialButtonToggleGroup android:id="@+id/toggleUserGender" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:selectionRequired="true" app:singleSelection="true">
+                    <Button android:id="@+id/btnMale" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Male" android:textAllCaps="false" />
+                    <Button android:id="@+id/btnFemale" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Female" android:textAllCaps="false" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Aadhar UID" app:startIconDrawable="@drawable/ic_id_card">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etAadhar" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="State" app:startIconDrawable="@android:drawable/ic_menu_mapmode">
+                    <AutoCompleteTextView android:id="@+id/autoState" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="City" app:startIconDrawable="@android:drawable/ic_menu_compass">
+                    <AutoCompleteTextView android:id="@+id/autoCity" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Pincode" app:startIconDrawable="@android:drawable/ic_dialog_map">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPincode" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Address" app:startIconDrawable="@android:drawable/ic_menu_directions">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etAddress" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="textMultiLine" android:gravity="top" android:lines="3"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Relative Details"
+                    android:textColor="#B71C1C"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="24dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:hint="Relative Name" app:startIconDrawable="@drawable/ic_person">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRelName" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relative Mobile" app:startIconDrawable="@drawable/ic_phone">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRelMobile" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relative Email Id" app:startIconDrawable="@drawable/ic_email">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRelEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relative DOB" app:startIconDrawable="@android:drawable/ic_menu_my_calendar">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRelDob" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:focusable="false" android:clickable="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relative Age" app:startIconDrawable="@drawable/ic_id_card">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRelAge" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:enabled="false" android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Relative Gender" android:textColor="#212121" android:textSize="12sp" />
+                <com.google.android.material.button.MaterialButtonToggleGroup android:id="@+id/toggleRelGender" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:selectionRequired="true" app:singleSelection="true">
+                    <Button android:id="@+id/btnRelMale" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Male" android:textAllCaps="false" />
+                    <Button android:id="@+id/btnRelFemale" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Female" android:textAllCaps="false" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relative Aadhar UID" app:startIconDrawable="@drawable/ic_id_card">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRelAadhar" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relative State" app:startIconDrawable="@android:drawable/ic_menu_mapmode">
+                    <AutoCompleteTextView android:id="@+id/autoRelState" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relative City" app:startIconDrawable="@android:drawable/ic_menu_compass">
+                    <AutoCompleteTextView android:id="@+id/autoRelCity" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relative Pincode" app:startIconDrawable="@android:drawable/ic_dialog_map">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRelPincode" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relative Address" app:startIconDrawable="@android:drawable/ic_menu_directions">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRelAddress" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="textMultiLine" android:gravity="top" android:lines="3"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relative Blood Group" app:startIconDrawable="@drawable/ic_blood_drop">
+                    <AutoCompleteTextView android:id="@+id/autoRelBloodGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Relationship" app:startIconDrawable="@android:drawable/ic_menu_share">
+                    <AutoCompleteTextView android:id="@+id/autoRelRelationship" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="40dp" android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="30dp"/>
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:backgroundTint="#B71C1C"
+        android:text="NEXT"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:cornerRadius="8dp" />
+
+</RelativeLayout>
