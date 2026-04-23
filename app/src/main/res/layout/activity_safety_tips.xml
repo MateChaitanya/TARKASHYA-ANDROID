@@ -1,15 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="#F2F2F2"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:background="#1A1A1A">
+        android:background="#FFFFFF"
+        android:elevation="4dp">
 
         <ImageView
             android:id="@+id/btnBack"
@@ -43,37 +45,154 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="#1E1E1E"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="4dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
                     android:orientation="horizontal">
-
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_dialog_map"
+                        app:tint="#E53935" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Road Accident"
+                            android:textColor="#E53935"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Do not move the victim unless there is danger of fire. Check for bleeding and apply firm pressure with a clean cloth. Call 108 immediately."
+                            android:textColor="#212121"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_lock_idle_lock"
+                        app:tint="#9C27B0" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Walking Alone at Night"
+                            android:textColor="#9C27B0"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Avoid poorly lit shortcuts. Keep your phone in your hand. If followed, head toward a public place like a gas station or 24/7 shop."
+                            android:textColor="#212121"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_dialog_info"
+                        app:tint="#FF5722" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dealing with Harassment"
+                            android:textColor="#FF5722"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Draw attention by shouting. Be firm and loud. Use this app's SOS button to alert your family immediately. Call Women Helpline 1091."
+                            android:textColor="#212121"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@android:drawable/ic_menu_mylocation"
                         app:tint="#4CAF50" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:orientation="vertical">
-
                         <TextView
-                            style="@style/SafetyTipTitle"
-                            android:layout_marginTop="0dp"
-                            android:text="Medical Emergency"
-                            android:textColor="#4CAF50" />
-
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Choking Emergency"
+                            android:textColor="#4CAF50"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
                         <TextView
-                            style="@style/SafetyTipBody"
-                            android:text="Check for breathing and pulse. If trained, begin CPR. Call 102 immediately." />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Perform the Heimlich maneuver: Stand behind the person, wrap arms around waist, and pull inward and upward above the navel."
+                            android:textColor="#212121"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -82,74 +201,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="#1E1E1E"
-                app:cardCornerRadius="15dp">
-
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="4dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
                     android:orientation="horizontal">
-
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@android:drawable/ic_dialog_alert"
                         app:tint="#FF9800" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:orientation="vertical">
-
                         <TextView
-                            style="@style/SafetyTipTitle"
-                            android:layout_marginTop="0dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="Fire Safety"
-                            android:textColor="#FF9800" />
-
+                            android:textColor="#FF9800"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
                         <TextView
-                            style="@style/SafetyTipBody"
-                            android:text="Stay low to avoid smoke. Use the back of your hand to feel door heat before opening." />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="#1E1E1E"
-                app:cardCornerRadius="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@android:drawable/ic_lock_idle_lock"
-                        app:tint="#2196F3" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/SafetyTipTitle"
-                            android:layout_marginTop="0dp"
-                            android:text="Personal Security"
-                            android:textColor="#2196F3" />
-
-                        <TextView
-                            style="@style/SafetyTipBody"
-                            android:text="Trust your instincts. Keep your live location shared with trusted contacts." />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="If clothes catch fire: Stop, Drop, and Roll. Use a fire extinguisher (PASS: Pull, Aim, Squeeze, Sweep) only if the fire is small."
+                            android:textColor="#212121"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

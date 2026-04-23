@@ -39,6 +39,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation("androidx.biometric:biometric:1.2.0-alpha05")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation("com.google.android.gms:play-services-location:21.0.1")

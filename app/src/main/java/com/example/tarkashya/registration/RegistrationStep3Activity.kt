@@ -3,8 +3,9 @@ package com.example.tarkashya.registration
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tarkashya.MainActivity
+import com.example.tarkashya.LoginActivity  // Import the LoginActivity
 import com.example.tarkashya.R
 
 class RegistrationStep3Activity : AppCompatActivity() {
@@ -17,12 +18,20 @@ class RegistrationStep3Activity : AppCompatActivity() {
         val btnRegister = findViewById<Button>(R.id.btnRegister)
 
         btnRegister.setOnClickListener {
-            // Here you would typically save the PIN and consent status
+            // 1. Logic to save data (PIN, emergency contacts, etc.) would go here
 
-            val intent = Intent(this, MainActivity::class.java)
-            // Clear the backstack so the user cannot back-press into registration
+            // 2. Show a success message to the user
+            Toast.makeText(this, "Registration Successful! Please login.", Toast.LENGTH_LONG).show()
+
+            // 3. Navigate to LoginActivity instead of MainActivity
+            val intent = Intent(this, LoginActivity::class.java)
+
+            // 4. IMPORTANT: This clears all previous registration screens from memory
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
             startActivity(intent)
+
+            // 5. Close this activity
             finish()
         }
     }

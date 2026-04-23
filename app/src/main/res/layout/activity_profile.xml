@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#D32F2F"
+            app:title="My Profile"
+            app:titleTextColor="#FFFFFF"
+            app:navigationIcon="@drawable/ic_back_arrow" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_person"
+                    app:shapeAppearanceOverlay="@style/CircleImage"
+                    app:strokeColor="#D32F2F"
+                    app:strokeWidth="2dp" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/profileImage"
+                    android:layout_alignEnd="@id/profileImage"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:fabCustomSize="36dp"
+                    app:tint="#FFFFFF"
+                    app:backgroundTint="#D32F2F" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Sample Name"
+                android:textColor="#212121"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvUserId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="#D32F2F"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
+                android:text="User ID: TKS-8892"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#EEEEEE"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:text="Personal Information"
+                        android:textColor="#D32F2F"
+                        android:textStyle="bold"
+                        app:drawableStartCompat="@drawable/ic_person"
+                        app:drawableTint="#D32F2F" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="12dp" android:background="#EEEEEE" />
+
+                    <include layout="@layout/row_profile_info" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#EEEEEE"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:text="Medical Information"
+                        android:textColor="#D32F2F"
+                        android:textStyle="bold"
+                        app:drawableStartCompat="@android:drawable/ic_dialog_info"
+                        app:drawableTint="#D32F2F" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="12dp" android:background="#EEEEEE" />
+
+                    <RelativeLayout style="@style/ProfileRowStyle">
+                        <TextView android:text="Allergies" style="@style/ProfileLabelStyle" />
+                        <TextView android:id="@+id/tvProfileAllergies" android:text="None" style="@style/ProfileValueStyle" />
+                    </RelativeLayout>
+
+                    <RelativeLayout style="@style/ProfileRowStyle">
+                        <TextView android:text="Conditions" style="@style/ProfileLabelStyle" />
+                        <TextView android:id="@+id/tvProfileConditions" android:text="None" style="@style/ProfileValueStyle" />
+                    </RelativeLayout>
+
+                    <RelativeLayout style="@style/ProfileRowStyle">
+                        <TextView android:text="Medications" style="@style/ProfileLabelStyle" />
+                        <TextView android:id="@+id/tvProfileMeds" android:text="N/A" style="@style/ProfileValueStyle" />
+                    </RelativeLayout>
+
+                    <RelativeLayout style="@style/ProfileRowStyle">
+                        <TextView android:text="Emergency Note" style="@style/ProfileLabelStyle" />
+                        <TextView android:id="@+id/tvProfileNote" android:text="None" style="@style/ProfileValueStyle" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
