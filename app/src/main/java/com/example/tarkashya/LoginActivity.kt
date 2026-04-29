@@ -1,107 +1,3 @@
-//package com.example.tarkashya
-//
-//import android.content.Intent
-//import android.os.Bundle
-//import android.text.InputFilter
-//import android.text.method.HideReturnsTransformationMethod
-//import android.text.method.PasswordTransformationMethod
-//import android.widget.*
-//import androidx.appcompat.app.AppCompatActivity
-//import androidx.biometric.BiometricManager
-//import androidx.biometric.BiometricPrompt
-//import androidx.core.content.ContextCompat
-//import com.example.tarkashya.registration.RegistrationActivity
-//import java.util.concurrent.Executor
-//
-//class LoginActivity : AppCompatActivity() {
-//
-//    private var isPasswordVisible = false
-//    private lateinit var executor: Executor
-//    private lateinit var biometricPrompt: BiometricPrompt
-//    private lateinit var promptInfo: BiometricPrompt.PromptInfo
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_login)
-//
-//        // 1. Initialize Views
-//        val etPhone = findViewById<EditText>(R.id.etPhone)
-//        val etPassword = findViewById<EditText>(R.id.etPassword)
-//        val iconVisibility = findViewById<ImageView>(R.id.iconVisibility)
-//        val btnLogin = findViewById<Button>(R.id.btnLogin)
-//        val tvSignUp = findViewById<TextView>(R.id.tvSignUp)
-//        val btnBiometric = findViewById<LinearLayout>(R.id.btnBiometric)
-//
-//        etPhone.filters = arrayOf(InputFilter.LengthFilter(10))
-//        etPassword.filters = arrayOf(InputFilter.LengthFilter(4))
-//
-//        // 2. Setup Biometric Logic
-//        executor = ContextCompat.getMainExecutor(this)
-//        biometricPrompt = BiometricPrompt(this, executor,
-//            object : BiometricPrompt.AuthenticationCallback() {
-//                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-//                    super.onAuthenticationError(errorCode, errString)
-//                    Toast.makeText(applicationContext, "Auth error: $errString", Toast.LENGTH_SHORT).show()
-//                }
-//
-//                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-//                    super.onAuthenticationSucceeded(result)
-//                    Toast.makeText(applicationContext, "Login Successful!", Toast.LENGTH_SHORT).show()
-//                    // Navigate to Dashboard
-//                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-//                    finish()
-//                }
-//
-//                override fun onAuthenticationFailed() {
-//                    super.onAuthenticationFailed()
-//                    Toast.makeText(applicationContext, "Authentication failed", Toast.LENGTH_SHORT).show()
-//                }
-//            })
-//
-//        promptInfo = BiometricPrompt.PromptInfo.Builder()
-//            .setTitle("Biometric Login")
-//            .setSubtitle("Log in using your fingerprint")
-//            .setNegativeButtonText("Use PIN instead")
-//            .build()
-//
-//        // 3. Biometric Button Click
-//        btnBiometric.setOnClickListener {
-//            val biometricManager = BiometricManager.from(this)
-//            when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG)) {
-//                BiometricManager.BIOMETRIC_SUCCESS ->
-//                    biometricPrompt.authenticate(promptInfo)
-//                BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->
-//                    Toast.makeText(this, "No biometric hardware detected", Toast.LENGTH_SHORT).show()
-//                BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->
-//                    Toast.makeText(this, "Biometric hardware is currently unavailable", Toast.LENGTH_SHORT).show()
-//                BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED ->
-//                    Toast.makeText(this, "No fingerprints registered on this device", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//
-//        // 4. Standard Login & Visibility (Keep your existing code)
-//        iconVisibility.setOnClickListener {
-//            if (isPasswordVisible) {
-//                etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
-//            } else {
-//                etPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
-//            }
-//            isPasswordVisible = !isPasswordVisible
-//            etPassword.setSelection(etPassword.text.length)
-//        }
-//
-//        btnLogin.setOnClickListener {
-//            // Your existing validation logic here...
-//            startActivity(Intent(this, MainActivity::class.java))
-//            finish()
-//        }
-//
-//        tvSignUp.setOnClickListener {
-//            startActivity(Intent(this, RegistrationActivity::class.java))
-//        }
-//    }
-//}
-
 package com.example.tarkashya
 
 import android.content.Intent
@@ -109,13 +5,16 @@ import android.os.Bundle
 import android.text.InputFilter
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import com.example.tarkashya.network.RetrofitClient
 import com.example.tarkashya.registration.RegistrationActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.concurrent.Executor
 
 class LoginActivity : AppCompatActivity() {
@@ -129,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // 1. Initialize Views
         val etPhone = findViewById<EditText>(R.id.etPhone)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val iconVisibility = findViewById<ImageView>(R.id.iconVisibility)
@@ -139,27 +37,16 @@ class LoginActivity : AppCompatActivity() {
         val btnBiometric = findViewById<LinearLayout>(R.id.btnBiometric)
         val btnEmergencyNoLogin = findViewById<LinearLayout>(R.id.btnEmergencyNoLogin)
 
-        // Input Constraints
         etPhone.filters = arrayOf(InputFilter.LengthFilter(10))
         etPassword.filters = arrayOf(InputFilter.LengthFilter(4))
 
-        // 2. Setup Biometric Logic
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this, executor,
             object : BiometricPrompt.AuthenticationCallback() {
-                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                    super.onAuthenticationError(errorCode, errString)
-                    Toast.makeText(applicationContext, "Auth error: $errString", Toast.LENGTH_SHORT).show()
-                }
-
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
-                    navigateToMain(false) // Regular login
-                }
-
-                override fun onAuthenticationFailed() {
-                    super.onAuthenticationFailed()
-                    Toast.makeText(applicationContext, "Authentication failed", Toast.LENGTH_SHORT).show()
+                    // Note: For real biometric login, you'd usually verify a stored token or pin
+                    navigateToMain(false, mutableMapOf("fullName" to "User"))
                 }
             })
 
@@ -169,43 +56,58 @@ class LoginActivity : AppCompatActivity() {
             .setNegativeButtonText("Use PIN instead")
             .build()
 
-        // 3. Click Listeners
-
-        // Biometric Login
         btnBiometric.setOnClickListener {
             val biometricManager = BiometricManager.from(this)
-            when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG)) {
-                BiometricManager.BIOMETRIC_SUCCESS -> biometricPrompt.authenticate(promptInfo)
-                else -> Toast.makeText(this, "Biometric unavailable or not set up", Toast.LENGTH_SHORT).show()
+            if (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG) == BiometricManager.BIOMETRIC_SUCCESS) {
+                biometricPrompt.authenticate(promptInfo)
+            } else {
+                Toast.makeText(this, "Biometric unavailable", Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Emergency Access (The feature you requested)
         btnEmergencyNoLogin.setOnClickListener {
-            // We pass 'true' to signal that the app is in Emergency Mode
-            navigateToMain(true)
+            navigateToMain(true, mutableMapOf("fullName" to "Guest"))
         }
 
-        // Standard Login
         btnLogin.setOnClickListener {
-            val phone = etPhone.text.toString()
-            val pin = etPassword.text.toString()
+            val phone = etPhone.text.toString().trim()
+            val pin = etPassword.text.toString().trim()
 
             if (phone.length == 10 && pin.length == 4) {
-                navigateToMain(false)
+                val loginRequest = mapOf("mobileNumber" to phone, "loginPin" to pin)
+                btnLogin.isEnabled = false
+                btnLogin.text = "Verifying..."
+
+                RetrofitClient.instance.loginUser(loginRequest).enqueue(object : Callback<Map<String, Any>> {
+                    override fun onResponse(call: Call<Map<String, Any>>, response: Response<Map<String, Any>>) {
+                        btnLogin.isEnabled = true
+                        btnLogin.text = "LOGIN"
+                        if (response.isSuccessful) {
+                            val userMap = response.body() ?: emptyMap()
+                            navigateToMain(false, userMap)
+                        } else {
+                            val errorMsg = if (response.code() == 404) "User not found" else "Invalid PIN"
+                            Toast.makeText(this@LoginActivity, errorMsg, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    override fun onFailure(call: Call<Map<String, Any>>, t: Throwable) {
+                        btnLogin.isEnabled = true
+                        btnLogin.text = "LOGIN"
+                        Toast.makeText(this@LoginActivity, "Connection Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
             } else {
-                Toast.makeText(this, "Please enter valid credentials", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Enter 10-digit Phone & 4-digit PIN", Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Password Visibility Toggle
         iconVisibility.setOnClickListener {
             if (isPasswordVisible) {
                 etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
-                iconVisibility.setImageResource(R.drawable.ic_eye_visible)
+                iconVisibility.setImageResource(android.R.drawable.ic_menu_view) // Replace with your ic_eye_visible
             } else {
                 etPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                iconVisibility.setImageResource(R.drawable.ic_eye_visible) // Ensure you have correct drawable
+                iconVisibility.setImageResource(android.R.drawable.ic_menu_view) // Replace with your ic_eye_visible
             }
             isPasswordVisible = !isPasswordVisible
             etPassword.setSelection(etPassword.text.length)
@@ -216,17 +118,31 @@ class LoginActivity : AppCompatActivity() {
         }
 
         tvForgotPin.setOnClickListener {
-            Toast.makeText(this, "PIN recovery feature coming soon", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Feature coming soon", Toast.LENGTH_SHORT).show()
         }
     }
 
-    /**
-     * Navigates to MainActivity.
-     * @param isEmergency If true, the dashboard will hide private info.
-     */
-    private fun navigateToMain(isEmergency: Boolean) {
+    private fun navigateToMain(isEmergency: Boolean, userMap: Map<String, Any>) {
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("isEmergencyMode", isEmergency)
+
+        // Passing all Database fields to MainActivity to be used in Profile
+        intent.putExtra("USER_NAME", userMap["fullName"]?.toString() ?: "User")
+        intent.putExtra("USER_ID", userMap["id"]?.toString() ?: "8892")
+        intent.putExtra("DOB", userMap["dob"]?.toString() ?: "Not Set")
+        intent.putExtra("GENDER", userMap["gender"]?.toString() ?: "Not Set")
+        intent.putExtra("BLOOD_GROUP", userMap["bloodGroup"]?.toString() ?: "Not Set")
+        intent.putExtra("PHONE", userMap["mobileNumber"]?.toString() ?: "Not Set")
+
+        // Medical Info
+        intent.putExtra("ALLERGIES", userMap["allergies"]?.toString() ?: "None")
+        intent.putExtra("CONDITIONS", userMap["medicalConditions"]?.toString() ?: "None")
+
+        // Handle Nested Relative Info (Emergency Contact)
+        val relative = userMap["relative"] as? Map<*, *>
+        intent.putExtra("REL_NAME", relative?.get("relName")?.toString() ?: "Not Set")
+        intent.putExtra("REL_PHONE", relative?.get("relMobile")?.toString() ?: "Not Set")
+
         startActivity(intent)
         finish()
     }

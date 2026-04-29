@@ -97,10 +97,10 @@
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
 
-                    <EditText android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
-                    <EditText android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
-                    <EditText android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
-                    <EditText android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
+                    <EditText android:id="@+id/pin_1" android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
+                    <EditText android:id="@+id/pin_2" android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
+                    <EditText android:id="@+id/pin_3" android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
+                    <EditText android:id="@+id/pin_4" android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
                 </LinearLayout>
 
                 <TextView
@@ -118,10 +118,10 @@
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
 
-                    <EditText android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
-                    <EditText android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
-                    <EditText android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
-                    <EditText android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
+                    <EditText android:id="@+id/confirm_pin_1" android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
+                    <EditText android:id="@+id/confirm_pin_2" android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
+                    <EditText android:id="@+id/confirm_pin_3" android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
+                    <EditText android:id="@+id/confirm_pin_4" android:layout_width="55dp" android:layout_height="55dp" android:layout_margin="5dp" android:background="@drawable/pin_box_bg" android:gravity="center" android:inputType="numberPassword" android:maxLength="1" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -132,6 +132,7 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/checkbox_consent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:buttonTint="#B71C1C" />

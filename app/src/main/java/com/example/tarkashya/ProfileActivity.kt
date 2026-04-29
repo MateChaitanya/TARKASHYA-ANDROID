@@ -11,23 +11,49 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        // Setup Toolbar
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "My Profile"
 
         toolbar.setNavigationOnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
 
-        // Initialize Views
-        val tvUserName = findViewById<TextView>(R.id.tvUserName)
-        val tvUserId = findViewById<TextView>(R.id.tvUserId)
+        // --- 1. Top Header Views ---
+        val tvHeaderName = findViewById<TextView>(R.id.tvUserName)
+        val tvHeaderId = findViewById<TextView>(R.id.tvUserId)
 
-        // Data would typically be fetched from your database here
-        // Using "Sample Name" as requested per project requirements
-        tvUserName.text = "Sample Name"
-        tvUserId.text = "User ID: TKS-8892"
+        // --- 2. Personal Info Views (In included row_profile_info.xml) ---
+        val tvFullName = findViewById<TextView>(R.id.tvProfileFullName)
+        val tvDob = findViewById<TextView>(R.id.tvProfileDob)
+        val tvGender = findViewById<TextView>(R.id.tvProfileGender)
+        val tvBloodGroup = findViewById<TextView>(R.id.tvProfileBlood)
+        val tvPhone = findViewById<TextView>(R.id.tvProfilePhone)
+
+        // --- 3. Medical Info Views ---
+        val tvAllergies = findViewById<TextView>(R.id.tvProfileAllergies)
+        val tvConditions = findViewById<TextView>(R.id.tvProfileConditions)
+        val tvMeds = findViewById<TextView>(R.id.tvProfileMeds)
+        val tvNote = findViewById<TextView>(R.id.tvProfileNote)
+
+        // --- 4. Bind Data ---
+        val userName = intent.getStringExtra("USER_NAME") ?: "N/A"
+
+        tvHeaderName.text = userName
+        tvHeaderId.text = "User ID: TKS-${intent.getStringExtra("USER_ID") ?: "8892"}"
+
+        // Card 1
+        tvFullName?.text = userName
+        tvDob?.text = intent.getStringExtra("DOB") ?: "Not Set"
+        tvGender?.text = intent.getStringExtra("GENDER") ?: "Not Set"
+        tvBloodGroup?.text = intent.getStringExtra("BLOOD_GROUP") ?: "Not Set"
+        tvPhone?.text = intent.getStringExtra("PHONE") ?: "Not Set"
+
+        // Card 2
+        tvAllergies.text = intent.getStringExtra("ALLERGIES") ?: "None"
+        tvConditions.text = intent.getStringExtra("CONDITIONS") ?: "None"
+        tvMeds.text = intent.getStringExtra("MEDS") ?: "N/A"
+        tvNote.text = intent.getStringExtra("NOTE") ?: "None"
     }
 }

@@ -6,27 +6,27 @@
 
     <RelativeLayout style="@style/ProfileRowStyle">
         <TextView android:text="Full Name" style="@style/ProfileLabelStyle" />
-        <TextView android:id="@+id/tvProfileFullName" android:text="Sample Name" style="@style/ProfileValueStyle" />
+        <TextView android:id="@+id/tvProfileFullName" android:text="Name" style="@style/ProfileValueStyle" />
     </RelativeLayout>
 
     <RelativeLayout style="@style/ProfileRowStyle">
         <TextView android:text="Date of Birth" style="@style/ProfileLabelStyle" />
-        <TextView android:id="@+id/tvProfileDob" android:text="12 Jan 2001" style="@style/ProfileValueStyle" />
+        <TextView android:id="@+id/tvProfileDob" android:text="DOB" style="@style/ProfileValueStyle" />
     </RelativeLayout>
 
     <RelativeLayout style="@style/ProfileRowStyle">
         <TextView android:text="Gender" style="@style/ProfileLabelStyle" />
-        <TextView android:id="@+id/tvProfileGender" android:text="Male" style="@style/ProfileValueStyle" />
+        <TextView android:id="@+id/tvProfileGender" android:text="Gender" style="@style/ProfileValueStyle" />
     </RelativeLayout>
 
     <RelativeLayout style="@style/ProfileRowStyle">
         <TextView android:text="Blood Group" style="@style/ProfileLabelStyle" />
-        <TextView android:id="@+id/tvProfileBlood" android:text="B+" style="@style/ProfileValueStyle" />
+        <TextView android:id="@+id/tvProfileBlood" android:text="Group" style="@style/ProfileValueStyle" />
     </RelativeLayout>
 
     <RelativeLayout style="@style/ProfileRowStyle">
         <TextView android:text="Phone Number" style="@style/ProfileLabelStyle" />
-        <TextView android:id="@+id/tvProfilePhone" android:text="+91 98765 43210" style="@style/ProfileValueStyle" />
+        <TextView android:id="@+id/tvProfilePhone" android:text="Phone" style="@style/ProfileValueStyle" />
     </RelativeLayout>
 
 </LinearLayout>

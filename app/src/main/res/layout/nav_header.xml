@@ -15,9 +15,10 @@
         android:layout_marginBottom="12dp"/>
 
     <TextView
+        android:id="@+id/tvHeaderName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chaitanya Mate"
+        android:text="User Name"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
